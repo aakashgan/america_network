@@ -1,0 +1,23 @@
+{
+  "name": "disaster-network-component-1",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test",
+    "demo": "node src/demo.js",
+    "simulate": "node src/simulate.js",
+    "agent:demo": "AGENT_PROVIDER=mock_test node --env-file-if-exists=.env src/agent-demo.js",
+    "ml:data": "python3 ml-training/train.py --sample 5000",
+    "ml:train": "python3 ml-training/train.py --sample 5000 --offline",
+    "ml:evaluate": "python3 ml-training/train.py --sample 5000 --offline",
+    "data:buildings:fetch": "python3 scripts/fetch-buildings.py",
+    "data:buildings:validate": "node scripts/buildings-cache.js normalize",
+    "data:buildings:summary": "node scripts/buildings-cache.js summary"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.4",
+    "maplibre-gl": "^6.17.0"
+  }
+}

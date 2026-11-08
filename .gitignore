@@ -1,0 +1,11 @@
+.env
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+*.tmp
+ml-training/cache/
+data/buildings/raw/
+data/buildings/cache/

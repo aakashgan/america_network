@@ -1,0 +1,3 @@
+import { buildCache, loadSnapshot } from '../src/buildings.js';
+const report=s=>({schemaVersion:s.schemaVersion,rawRecordCount:s.rawRecordCount,acceptedRecordCount:s.acceptedRecordCount,rejectedRecordCount:s.rejectedRecordCount,source:s.source,coverage:s.coverage});
+const command=process.argv[2]??'normalize';try{if(command==='normalize')console.log(JSON.stringify(report(await buildCache()),null,2));else if(command==='summary')console.log(JSON.stringify(report(await loadSnapshot()),null,2));else throw new Error('Use normalize or summary');}catch(error){throw new Error(`Building cache unavailable: ${error.message}. Run npm run data:buildings:fetch; only complete validated Overture extracts can be cached.`);}
